@@ -27,8 +27,8 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
         with:
-          api-level: 34
-          build-tools-version: 34.0.0
+          packages: platforms;android-34 build-tools;34.0.0
+          accept-android-sdk-licenses: true
       
       - name: Cache Gradle packages
         uses: actions/cache@v4
@@ -65,7 +65,8 @@ jobs:
           cache: gradle
       - uses: android-actions/setup-android@v3
         with:
-          api-level: 34
+          packages: platforms;android-34
+          accept-android-sdk-licenses: true
       - name: Run Lint
         run: ./gradlew lintDebug --no-daemon
       - name: Upload Lint Report
@@ -74,6 +75,7 @@ jobs:
         with:
           name: lint-report
           path: app/build/reports/lint-results-debug.html
+          if-no-files-found: ignore
 
   test:
     name: Unit Tests
@@ -87,7 +89,8 @@ jobs:
           cache: gradle
       - uses: android-actions/setup-android@v3
         with:
-          api-level: 34
+          packages: platforms;android-34
+          accept-android-sdk-licenses: true
       - name: Run Unit Tests
         run: ./gradlew testDebugUnitTest --no-daemon
       - name: Upload Test Report
@@ -96,3 +99,4 @@ jobs:
         with:
           name: test-report
           path: app/build/reports/tests/testDebugUnitTest/
+          if-no-files-found: ignore
