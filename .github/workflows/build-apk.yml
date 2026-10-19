@@ -44,7 +44,7 @@ jobs:
         run: chmod +x ./gradlew
       
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon
+        run: ./gradlew assembleDebug --no-daemon --stacktrace --info
       
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
@@ -68,7 +68,7 @@ jobs:
           packages: platforms;android-34
           accept-android-sdk-licenses: true
       - name: Run Lint
-        run: ./gradlew lintDebug --no-daemon
+        run: ./gradlew lintDebug --no-daemon --stacktrace --info
       - name: Upload Lint Report
         uses: actions/upload-artifact@v4
         if: always()
@@ -92,7 +92,7 @@ jobs:
           packages: platforms;android-34
           accept-android-sdk-licenses: true
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest --no-daemon
+        run: ./gradlew testDebugUnitTest --no-daemon --stacktrace --info
       - name: Upload Test Report
         uses: actions/upload-artifact@v4
         if: always()
