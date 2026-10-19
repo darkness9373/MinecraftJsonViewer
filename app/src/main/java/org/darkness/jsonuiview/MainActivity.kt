@@ -13,6 +13,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import org.darkness.jsonuiview.navigation.AppNavHost
 import org.darkness.jsonuiview.ui.theme.Theme
+import org.darkness.jsonuiview.ui.theme.setupEdgeToEdge
 import org.darkness.jsonuiview.util.PreferencesManager
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        setupEdgeToEdge()
         setContent {
             val themeMode by remember { mutableStateOf(preferencesManager.themeMode) }
             Theme(themeMode = themeMode) {

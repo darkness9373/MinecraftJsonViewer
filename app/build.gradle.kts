@@ -81,6 +81,13 @@ dependencies {
     implementation("androidx.room:room-ktx:$room")
     ksp("androidx.room:room-compiler:$room")
 
+    // DataStore (Preferences)
+    val datastore = "1.0.0"
+    implementation("androidx.datastore:datastore-preferences:$datastore")
+    implementation("androidx.datastore:datastore-preferences-rxjava2:$datastore")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+
     // Serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 
